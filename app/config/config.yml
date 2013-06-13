@@ -63,3 +63,8 @@ swiftmailer:
     username:  %mailer_user%
     password:  %mailer_password%
     spool:     { type: memory }
+
+ivory_google_map:
+    map:
+        type: "roadmap"
+        width: "100%"

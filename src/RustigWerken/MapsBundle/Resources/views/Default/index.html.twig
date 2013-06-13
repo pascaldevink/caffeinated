@@ -1,1 +1,27 @@
-Hello {{ name }}!
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    {{ google_map_container(map) }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ google_map_js(map) }}
+
+    <script lang="javascript">
+//        document.getElementById('map_canvas');
+    </script>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ google_map_css(map) }}
+    <style>
+        #map_canvas {
+            height : 100% !important;
+            width : 100%;
+            top : 0;
+            left : 0;
+            position : absolute;
+            z-index : 200;
+        }
+    </style>
+{% endblock %}
