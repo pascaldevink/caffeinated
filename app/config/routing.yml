@@ -1,0 +1,5 @@
+rustig_werken_maps:
+    resource: "@RustigWerkenMapsBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
