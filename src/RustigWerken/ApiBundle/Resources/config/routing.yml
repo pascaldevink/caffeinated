@@ -1,0 +1,3 @@
+locations:
+    type:     rest
+    resource: RustigWerken\ApiBundle\Controller\LocationController

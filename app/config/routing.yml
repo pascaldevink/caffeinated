@@ -1,3 +1,7 @@
+rustig_werken_api:
+    resource: "@RustigWerkenApiBundle/Resources/config/routing.yml"
+    prefix:   /api
+
 rustig_werken_maps:
     resource: "@RustigWerkenMapsBundle/Controller/"
     type:     annotation

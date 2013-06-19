@@ -2,8 +2,11 @@
 
 namespace RustigWerken\MapsBundle\Controller;
 
+use Ivory\GoogleMap\Controls\ControlPosition;
+use Ivory\GoogleMap\Controls\MapTypeControlStyle;
+use Ivory\GoogleMap\Controls\ZoomControlStyle;
+use Ivory\GoogleMap\MapTypeId;
 use Ivory\GoogleMap\Overlays\Animation;
-use Ivory\GoogleMap\Overlays\Marker;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -17,12 +20,11 @@ class DefaultController extends Controller
     public function indexAction()
     {
         $map = $this->getMap();
+        $map->setJavascriptVariable('rwMap');
+        $map->setMapOption('panControl', false);
 
-        $marker = new Marker();
-        $marker->setPosition(52, 5, true);
-        $marker->setAnimation(Animation::DROP);
-
-        $map->addMarker($marker);
+        $map->setZoomControl(ControlPosition::RIGHT_CENTER, ZoomControlStyle::DEFAULT_);
+        $map->setMapTypeControl(array(MapTypeId::HYBRID, MapTypeId::ROADMAP), ControlPosition::BOTTOM_LEFT, MapTypeControlStyle::DEFAULT_);
 
         return array(
             'map' => $map,

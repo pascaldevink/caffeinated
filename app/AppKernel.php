@@ -18,7 +18,12 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
 
             new Ivory\GoogleMapBundle\IvoryGoogleMapBundle(),
+            new FOS\RestBundle\FOSRestBundle(),
+            new \JMS\SerializerBundle\JMSSerializerBundle(),
+
             new RustigWerken\MapsBundle\RustigWerkenMapsBundle(),
+            new RustigWerken\ApiBundle\RustigWerkenApiBundle(),
+            new RustigWerken\EntitiesBundle\RustigWerkenEntitiesBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

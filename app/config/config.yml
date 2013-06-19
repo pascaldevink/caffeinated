@@ -68,3 +68,7 @@ ivory_google_map:
     map:
         type: "roadmap"
         width: "100%"
+
+fos_rest:
+    routing_loader:
+        default_format: json

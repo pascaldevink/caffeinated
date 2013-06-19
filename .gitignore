@@ -11,4 +11,4 @@
 
 # intellij
 .idea
-.iml
+*.iml
