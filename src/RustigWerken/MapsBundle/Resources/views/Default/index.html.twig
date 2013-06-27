@@ -19,7 +19,7 @@
                 <li><input type="checkbox" name="wired-internet"> Bedraad Internet</li>
                 <li><input type="checkbox" name="wallsocket"> Stopcontact</li>
                 <li><input type="checkbox" name="food"> Food/snacks</li>
-                <li><input type="checkbox" name="silent"> Stil</li>
+                <li><input type="checkbox" name="silent"> Weinig geluid</li>
             </ul>
         </div>
     </div>
@@ -29,6 +29,9 @@
     {{ google_map_js(map) }}
 
     <script type="text/javascript">
+        var centerChangedEventTimer;
+        var markersArray = [];
+
         function getUserLocation()
         {
             if (navigator.geolocation)
@@ -44,12 +47,36 @@
             rwMap.setZoom(12);
         }
 
-        function getLocations(bounds)
+        function getLocations(bounds, filters)
         {
-            var url = '{{ path('get_locations') }}?minLat='+bounds+'&minLon=&maxLat=&maxLon=';
+            var parameters = [
+                'minLat=' + bounds.getSouthWest().lat(),
+                'minLng=' + bounds.getSouthWest().lng(),
+                'maxLat=' + bounds.getNorthEast().lat(),
+                'maxLng=' + bounds.getNorthEast().lng()
+            ];
+
+            if (filters)
+            {
+                for (var i=0, im=filters.length; im > i; i++)
+                {
+                    var filter = filters[i];
+                    parameters.push(filter.name + '=' + (filter.checked ? 1 : 0));
+                }
+            }
+
+            console.log(parameters);
+
+            var url = '{{ path('get_locations') }}?' + parameters.join('&');
             $.getJSON(url, function(locations)
                 {
-                    console.log(locations);
+                    if (markersArray) {
+                        for (i in markersArray) {
+                            markersArray[i].setMap(null);
+                        }
+                        markersArray.length = 0;
+                    }
+
                     locations.forEach(function(location) {
                         var latlng = new google.maps.LatLng(location.latitude, location.longitude);
 
@@ -68,9 +95,30 @@
                         google.maps.event.addListener(marker, 'click', function() {
                             infowindow.open(rwMap, marker);
                         });
+
+                        markersArray.push(marker);
                     });
                 }
             );
+        }
+
+        function filter()
+        {
+            var filterControl = document.getElementById("filterControl");
+            var filters = filterControl.getElementsByTagName("input");
+
+            getLocations(rwMap.getBounds(), filters);
+        }
+
+        function initFilter()
+        {
+            var filterControl = document.getElementById("filterControl");
+            var filters = filterControl.getElementsByTagName("input");
+
+            for (var i=0, im=filters.length; im > i; i++)
+            {
+                filters[i].addEventListener('click', filter);
+            };
         }
 
         function init()
@@ -79,16 +127,26 @@
             var controls = document.getElementById("controls");
             controls.style.display = 'block';
             rwMap.controls[google.maps.ControlPosition.TOP_LEFT].push(controls);
+
+            initFilter();
         }
 
         google.maps.event.addDomListener(window, 'load', init);
         google.maps.event.addListener(rwMap, 'center_changed', function() {
-            getLocations(rwMap.getBounds());
+            window.clearTimeout(centerChangedEventTimer)
+            centerChangedEventTimer = setTimeout(
+                function() {
+                    getLocations(rwMap.getBounds())
+                },
+                100
+            );
         });
     </script>
 {% endblock %}
 
 {% block stylesheets %}
+    <link href="{{ asset('bundles/rustigwerkenmaps/css/reset.css') }}" type="text/css" rel="stylesheet" />
+
     {{ google_map_css(map) }}
     <style>
         #map_canvas {
@@ -98,6 +156,10 @@
             left : 0;
             position : absolute;
             z-index : 200;
+        }
+
+        #filterControl ul {
+            list-style: none;
         }
     </style>
 {% endblock %}
