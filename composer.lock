@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "f17130517eb043ee2ae3e59d83fd916f",
+    "hash": "aec186ec695d9449473447749f6d188f",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -2056,6 +2056,62 @@
     ],
     "packages-dev": [
         {
+            "name": "liip/functional-test-bundle",
+            "version": "dev-master",
+            "target-dir": "Liip/FunctionalTestBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/liip/LiipFunctionalTestBundle.git",
+                "reference": "03a1892ae9d59c73f2d3c4309b941f2689f9c447"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/liip/LiipFunctionalTestBundle/zipball/03a1892ae9d59c73f2d3c4309b941f2689f9c447",
+                "reference": "03a1892ae9d59c73f2d3c4309b941f2689f9c447",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/common": "2.*",
+                "php": ">=5.3.2",
+                "symfony/framework-bundle": "~2.0"
+            },
+            "suggest": {
+                "doctrine/dbal": "Required when using the fixture loading functionality with an ORM and SQLite",
+                "doctrine/doctrine-fixtures-bundle": "Required when using the fixture loading functionality",
+                "doctrine/orm": "Required when using the fixture loading functionality with an ORM and SQLite"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Liip\\FunctionalTestBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Liip AG",
+                    "homepage": "http://www.liip.ch/"
+                },
+                {
+                    "name": "Community contributions",
+                    "homepage": "https://github.com/liip/LiipFunctionalTestBundle/contributors"
+                }
+            ],
+            "description": "This bundles provides additional functional test-cases for Symfony2 applications",
+            "keywords": [
+                "Symfony2"
+            ],
+            "time": "2013-05-24 05:48:28"
+        },
+        {
             "name": "phpunit/php-code-coverage",
             "version": "1.2.12",
             "source": {
@@ -2423,7 +2479,8 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
-        "jms/serializer-bundle": 20
+        "jms/serializer-bundle": 20,
+        "liip/functional-test-bundle": 20
     },
     "platform": {
         "php": ">=5.3.3"
