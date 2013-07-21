@@ -23,6 +23,9 @@
         "friendsofsymfony/rest-bundle": "0.12.0",
         "jms/serializer-bundle": "0.12.x-dev"
     },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*"
+    },
     "scripts": {
         "post-install-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
