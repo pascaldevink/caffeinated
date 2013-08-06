@@ -5,40 +5,24 @@ namespace RustigWerken\ApiBundle\Controller;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\View\View;
 use RustigWerken\EntitiesBundle\Entity\Location;
+use RustigWerken\EntitiesBundle\Entity\LocationRepository;
 use Symfony\Component\HttpFoundation\Request;
 
 class LocationController extends FOSRestController
 {
     public function getLocationsAction(Request $request)
     {
-        $data = array();
-
         $filterWiredInternet = $request->get('wired-internet', null);
         if ($filterWiredInternet === null || $filterWiredInternet == false)
         {
-            $location = new Location();
-            $location->setId(1337);
-            $location->setName('Starbucks Doubletree by Hilton');
-            $location->setLatitude(52.37698);
-            $location->setLongitude(4.904151);
-            $data[] = $location;
-
-            $location = new Location();
-            $location->setId(1337);
-            $location->setName('Starbucks The Bank');
-            $location->setLatitude(52.365896);
-            $location->setLongitude(4.897711);
-            $data[] = $location;
+            // Nothing yet
         }
 
-        $location = new Location();
-        $location->setId(1337);
-        $location->setName('Coffee Company Meester Treublaan');
-        $location->setLatitude(52.347272);
-        $location->setLongitude(4.914166);
-        $data[] = $location;
+        /** @var LocationRepository $locationRepository */
+        $locationRepository = $this->getDoctrine()->getRepository('RustigWerken\EntitiesBundle\Entity\Location');
+        $locations = $locationRepository->findAll();
 
-        $view = View::create($data);
+        $view = View::create($locations);
 
         return $this->handleView($view);
     }
