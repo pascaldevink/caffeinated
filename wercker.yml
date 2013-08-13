@@ -3,6 +3,10 @@ build:
     # The steps that will be executed on build
     steps:
       - script:
+          name: Configure timezone
+          code: |-
+            echo 'date.timezone = "Europe/Amsterdam"' >> $HOME/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+      - script:
           name: install dependencies
           code: composer install --dev --prefer-source --no-interaction
       - script:
