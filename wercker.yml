@@ -2,7 +2,7 @@ box: wercker/php
 build:
     # The steps that will be executed on build
     steps:
-      - install-packages
+      - install-packages:
           packages: graphviz
       - script:
           name: Configure timezone

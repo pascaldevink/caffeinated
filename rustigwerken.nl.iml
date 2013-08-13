@@ -3,7 +3,10 @@
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/vendor/cilex/cilex" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/cilex/console-service-provider" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/dflydev/markdown" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/annotations" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/common" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/dbal" />
@@ -31,7 +34,15 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/kriswallsmith/assetic" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/liip/functional-test-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/monolog/monolog" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/nikic/php-parser" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/phpcollection/phpcollection" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpdocumentor/fileset" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpdocumentor/graphviz" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpdocumentor/phpdocumentor" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpdocumentor/reflection" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpdocumentor/reflection-docblock" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpdocumentor/templates" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpdocumentor/unified-asset-installer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/phpoption/phpoption" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/phpunit/php-code-coverage" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/phpunit/php-file-iterator" />
@@ -40,6 +51,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/phpunit/php-token-stream" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/phpunit/phpunit" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/phpunit/phpunit-mock-objects" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/pimple/pimple" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/psr/log" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/satooshi/php-coveralls" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/sensio/distribution-bundle" />
@@ -53,6 +65,16 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/symfony" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/twig/extensions" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/twig/twig" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-cache" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-config" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-eventmanager" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-filter" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-i18n" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-json" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-math" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-serializer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-servicemanager" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-stdlib" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
@@ -60,32 +82,38 @@
         <CLASSES>
           <root url="phar://$MODULE_DIR$/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/Tests/Fixtures/includes/ProjectWithXsdExtensionInPhar.phar" />
           <root url="phar://$MODULE_DIR$/composer.phar" />
+          <root url="phar://$MODULE_DIR$/vendor/phpdocumentor/phpdocumentor/tests/data/test.phar" />
+          <root url="phar://$MODULE_DIR$/vendor/phpdocumentor/fileset/tests/data/test.phar" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
           <root url="phar://$MODULE_DIR$/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/Tests/Fixtures/includes/ProjectWithXsdExtensionInPhar.phar" />
           <root url="phar://$MODULE_DIR$/composer.phar" />
+          <root url="phar://$MODULE_DIR$/vendor/phpdocumentor/phpdocumentor/tests/data/test.phar" />
+          <root url="phar://$MODULE_DIR$/vendor/phpdocumentor/fileset/tests/data/test.phar" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
       <library name="Composer Vendors">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/jms/cg" />
           <root url="file://$MODULE_DIR$/vendor/jms/metadata" />
-          <root url="file://$MODULE_DIR$/vendor/jms/aop-bundle" />
           <root url="file://$MODULE_DIR$/vendor/jms/parser-lib" />
           <root url="file://$MODULE_DIR$/vendor/jms/serializer" />
-          <root url="file://$MODULE_DIR$/vendor/jms/di-extra-bundle" />
           <root url="file://$MODULE_DIR$/vendor/jms/serializer-bundle" />
           <root url="file://$MODULE_DIR$/vendor/psr/log" />
           <root url="file://$MODULE_DIR$/vendor/liip/functional-test-bundle" />
           <root url="file://$MODULE_DIR$/vendor/twig/twig" />
           <root url="file://$MODULE_DIR$/vendor/twig/extensions" />
+          <root url="file://$MODULE_DIR$/vendor/cilex/cilex" />
+          <root url="file://$MODULE_DIR$/vendor/cilex/console-service-provider" />
           <root url="file://$MODULE_DIR$/vendor/jdorn/sql-formatter" />
+          <root url="file://$MODULE_DIR$/vendor/nikic/php-parser" />
+          <root url="file://$MODULE_DIR$/vendor/pimple/pimple" />
           <root url="file://$MODULE_DIR$/vendor/sensio/generator-bundle" />
           <root url="file://$MODULE_DIR$/vendor/sensio/distribution-bundle" />
           <root url="file://$MODULE_DIR$/vendor/sensio/framework-extra-bundle" />
+          <root url="file://$MODULE_DIR$/vendor/dflydev/markdown" />
           <root url="file://$MODULE_DIR$/vendor/egeloen/google-map" />
           <root url="file://$MODULE_DIR$/vendor/egeloen/google-map-bundle" />
           <root url="file://$MODULE_DIR$/vendor/monolog/monolog" />
@@ -114,26 +142,45 @@
           <root url="file://$MODULE_DIR$/vendor/swiftmailer/swiftmailer" />
           <root url="file://$MODULE_DIR$/vendor/kriswallsmith/assetic" />
           <root url="file://$MODULE_DIR$/vendor/phpcollection/phpcollection" />
+          <root url="file://$MODULE_DIR$/vendor/phpdocumentor/fileset" />
+          <root url="file://$MODULE_DIR$/vendor/phpdocumentor/graphviz" />
+          <root url="file://$MODULE_DIR$/vendor/phpdocumentor/templates" />
+          <root url="file://$MODULE_DIR$/vendor/phpdocumentor/reflection" />
+          <root url="file://$MODULE_DIR$/vendor/phpdocumentor/phpdocumentor" />
+          <root url="file://$MODULE_DIR$/vendor/phpdocumentor/reflection-docblock" />
+          <root url="file://$MODULE_DIR$/vendor/phpdocumentor/unified-asset-installer" />
+          <root url="file://$MODULE_DIR$/vendor/zendframework/zend-i18n" />
+          <root url="file://$MODULE_DIR$/vendor/zendframework/zend-json" />
+          <root url="file://$MODULE_DIR$/vendor/zendframework/zend-math" />
+          <root url="file://$MODULE_DIR$/vendor/zendframework/zend-cache" />
+          <root url="file://$MODULE_DIR$/vendor/zendframework/zend-config" />
+          <root url="file://$MODULE_DIR$/vendor/zendframework/zend-filter" />
+          <root url="file://$MODULE_DIR$/vendor/zendframework/zend-stdlib" />
+          <root url="file://$MODULE_DIR$/vendor/zendframework/zend-serializer" />
+          <root url="file://$MODULE_DIR$/vendor/zendframework/zend-eventmanager" />
+          <root url="file://$MODULE_DIR$/vendor/zendframework/zend-servicemanager" />
           <root url="file://$MODULE_DIR$/vendor/friendsofsymfony/rest" />
           <root url="file://$MODULE_DIR$/vendor/friendsofsymfony/rest-bundle" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/jms/cg" />
           <root url="file://$MODULE_DIR$/vendor/jms/metadata" />
-          <root url="file://$MODULE_DIR$/vendor/jms/aop-bundle" />
           <root url="file://$MODULE_DIR$/vendor/jms/parser-lib" />
           <root url="file://$MODULE_DIR$/vendor/jms/serializer" />
-          <root url="file://$MODULE_DIR$/vendor/jms/di-extra-bundle" />
           <root url="file://$MODULE_DIR$/vendor/jms/serializer-bundle" />
           <root url="file://$MODULE_DIR$/vendor/psr/log" />
           <root url="file://$MODULE_DIR$/vendor/liip/functional-test-bundle" />
           <root url="file://$MODULE_DIR$/vendor/twig/twig" />
           <root url="file://$MODULE_DIR$/vendor/twig/extensions" />
+          <root url="file://$MODULE_DIR$/vendor/cilex/cilex" />
+          <root url="file://$MODULE_DIR$/vendor/cilex/console-service-provider" />
           <root url="file://$MODULE_DIR$/vendor/jdorn/sql-formatter" />
+          <root url="file://$MODULE_DIR$/vendor/nikic/php-parser" />
+          <root url="file://$MODULE_DIR$/vendor/pimple/pimple" />
           <root url="file://$MODULE_DIR$/vendor/sensio/generator-bundle" />
           <root url="file://$MODULE_DIR$/vendor/sensio/distribution-bundle" />
           <root url="file://$MODULE_DIR$/vendor/sensio/framework-extra-bundle" />
+          <root url="file://$MODULE_DIR$/vendor/dflydev/markdown" />
           <root url="file://$MODULE_DIR$/vendor/egeloen/google-map" />
           <root url="file://$MODULE_DIR$/vendor/egeloen/google-map-bundle" />
           <root url="file://$MODULE_DIR$/vendor/monolog/monolog" />
@@ -162,6 +209,23 @@
           <root url="file://$MODULE_DIR$/vendor/swiftmailer/swiftmailer" />
           <root url="file://$MODULE_DIR$/vendor/kriswallsmith/assetic" />
           <root url="file://$MODULE_DIR$/vendor/phpcollection/phpcollection" />
+          <root url="file://$MODULE_DIR$/vendor/phpdocumentor/fileset" />
+          <root url="file://$MODULE_DIR$/vendor/phpdocumentor/graphviz" />
+          <root url="file://$MODULE_DIR$/vendor/phpdocumentor/templates" />
+          <root url="file://$MODULE_DIR$/vendor/phpdocumentor/reflection" />
+          <root url="file://$MODULE_DIR$/vendor/phpdocumentor/phpdocumentor" />
+          <root url="file://$MODULE_DIR$/vendor/phpdocumentor/reflection-docblock" />
+          <root url="file://$MODULE_DIR$/vendor/phpdocumentor/unified-asset-installer" />
+          <root url="file://$MODULE_DIR$/vendor/zendframework/zend-i18n" />
+          <root url="file://$MODULE_DIR$/vendor/zendframework/zend-json" />
+          <root url="file://$MODULE_DIR$/vendor/zendframework/zend-math" />
+          <root url="file://$MODULE_DIR$/vendor/zendframework/zend-cache" />
+          <root url="file://$MODULE_DIR$/vendor/zendframework/zend-config" />
+          <root url="file://$MODULE_DIR$/vendor/zendframework/zend-filter" />
+          <root url="file://$MODULE_DIR$/vendor/zendframework/zend-stdlib" />
+          <root url="file://$MODULE_DIR$/vendor/zendframework/zend-serializer" />
+          <root url="file://$MODULE_DIR$/vendor/zendframework/zend-eventmanager" />
+          <root url="file://$MODULE_DIR$/vendor/zendframework/zend-servicemanager" />
           <root url="file://$MODULE_DIR$/vendor/friendsofsymfony/rest" />
           <root url="file://$MODULE_DIR$/vendor/friendsofsymfony/rest-bundle" />
         </SOURCES>
