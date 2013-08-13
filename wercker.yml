@@ -19,6 +19,6 @@ build:
           code: bin/phpdoc.php -d src -t build/doc
 deploy:
     steps:
-      - gh-pages:
+      - lukevivier/gh-pages:
           token: $GIT_TOKEN
           basedir: build/doc
