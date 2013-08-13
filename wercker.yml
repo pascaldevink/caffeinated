@@ -8,7 +8,9 @@ build:
             echo 'date.timezone = "Europe/Amsterdam"' >> $HOME/.phpenv/versions/$(phpenv version-name)/etc/php.ini
       - script:
           name: install dependencies
-          code: composer install --dev --prefer-source --no-interaction
+          code: |
+            composer install --dev --prefer-source --no-interaction
+            sudo apt-get install graphviz
       - script:
           name: run unit tests
           code: phpunit -c app
