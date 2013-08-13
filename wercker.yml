@@ -4,7 +4,7 @@ build:
     steps:
       - script:
           name: install dependencies
-          code: composer install --dev --no-interaction
+          code: composer install --dev --prefer-source --no-interaction
       - script:
           name: run unit tests
           code: phpunit -c app
