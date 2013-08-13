@@ -20,5 +20,5 @@ build:
 deploy:
     steps:
       - gh-pages:
-        token: $GIT_TOKEN
-        basedir: build/doc
+          token: $GIT_TOKEN
+          basedir: build/doc
