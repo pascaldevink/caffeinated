@@ -8,3 +8,11 @@ build:
       - script:
           name: run unit tests
           code: phpunit -c app
+      - script:
+          name: generate documentation
+          code: bin/phpdoc.php -d src -t build/doc
+deply:
+    steps:
+      - gh-pages:
+        token: $GIT_TOKEN
+        basedir: build/doc
