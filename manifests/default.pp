@@ -44,6 +44,11 @@ apache::vhost { 'caffeinated.dev':
   docroot       => '/var/www/web/',
   port          => '80',
   env_variables => [
+    'SYMFONY__DATABASE__DRIVER pdo_pgsql',
+    'SYMFONY__DATABASE__HOST 127.0.0.1',
+    'SYMFONY__DATABASE__NAME caffeinated',
+    'SYMFONY__DATABASE__USER caffeinated',
+    'SYMFONY__DATABASE__PASSWORD caffeinated'
 ],
   priority      => '1',
 }
