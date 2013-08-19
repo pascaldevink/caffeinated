@@ -23,4 +23,4 @@ deploy:
           token: $GIT_TOKEN
           basedir: build/doc
       - heroku-deploy:
-          heroku_key: $HEROKU_KEY
+          HEROKU_KEY: $HEROKU_KEY
