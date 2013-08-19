@@ -3,17 +3,16 @@
 {% block body %}
     {{ google_map_container(map) }}
 
-    <div id="controls" style="display: none; z-index: 1;">
-        <div id="searchControl"
-             style="margin-top: 25px; margin-left: 25px;">
+    <div id="mainnav">
+        <div id="searchControl">
             <div>
-                <input type="text" name="query"
-                       style="border: none; height: 1.25em; font-size: 15px; font-weight: 300; width: 360px;">
-                <button style="background-color: blue; border: none; border-radius: 2px; color: white; height: 1.25em; width: 40px; padding-top: 5px; box-sizing: content-box;">Zoek</button>
+                <input type="text" name="query">
+                <button>Zoek</button>
             </div>
         </div>
 
-        <div id="filterControl" style="margin-left: 25px; margin-top: 20px; height: 60%; width: 360px; background-color: white;">
+        <div id="filterControl">
+            <a href="">Filter</a>
             <ul>
                 <li><input type="checkbox" name="wireless-internet"> Draadloos Internet</li>
                 <li><input type="checkbox" name="wired-internet"> Bedraad Internet</li>
@@ -124,10 +123,6 @@
         function init()
         {
             getUserLocation()
-            var controls = document.getElementById("controls");
-            controls.style.display = 'block';
-            rwMap.controls[google.maps.ControlPosition.TOP_LEFT].push(controls);
-
             initFilter();
         }
 
@@ -145,21 +140,8 @@
 {% endblock %}
 
 {% block stylesheets %}
-    <link href="{{ asset('bundles/rustigwerkenmaps/css/reset.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('bundles/rustigwerkenmaps/css/modules/mainnav.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('bundles/rustigwerkenmaps/css/modules/map.css') }}" type="text/css" rel="stylesheet" />
 
     {{ google_map_css(map) }}
-    <style>
-        #map_canvas {
-            height : 100% !important;
-            width : 100%;
-            top : 0;
-            left : 0;
-            position : absolute;
-            z-index : 200;
-        }
-
-        #filterControl ul {
-            list-style: none;
-        }
-    </style>
 {% endblock %}

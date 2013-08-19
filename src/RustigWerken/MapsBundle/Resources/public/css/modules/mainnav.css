@@ -1,0 +1,21 @@
+#searchControl {
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+}
+
+#searchControl > div {
+
+}
+
+#searchControl input {
+    width: 200px;
+}
+
+#filterControl {
+    display: inline-block;
+}
+
+#filterControl ul {
+    display: none;
+}

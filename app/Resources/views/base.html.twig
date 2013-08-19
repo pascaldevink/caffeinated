@@ -3,6 +3,13 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
+
+        <!-- Base styles -->
+        <link href="{{ asset('/css/base/reset.css') }}" type="text/css" rel="stylesheet" />
+        <link href="{{ asset('/css/base/base.css') }}" type="text/css" rel="stylesheet" />
+        <link href="{{ asset('/css/layout/maps.css') }}" type="text/css" rel="stylesheet" />
+        <link href="{{ asset('/css/themes/standard.css') }}" type="text/css" rel="stylesheet" />
+
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
