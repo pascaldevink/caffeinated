@@ -15,12 +15,18 @@ GET /location
 { "url": "/location/1", "name":"Star Bucks - The Bank", "latitude": "52.365845", "longitude": "4.897746" }
 ] }
 
-Save new locations
+Save new location
 POST /location
 > Content-Type: application/json
 { "name":"Star Bucks - Hilton", "latitude": "52.376818", "longitude": "4.904037" }
 < 201
 < Content-Type: application/json
 { "status": "created", "url": "/location/2" }
+
+Get single location
+GET /location/1
+< 200
+< Content-Type: application/json
+{ "url": "/location/1", "name":"Star Bucks - The Bank", "latitude": "52.365845", "longitude": "4.897746" }
 
 -- Member Resources --
