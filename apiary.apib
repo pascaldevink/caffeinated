@@ -1,0 +1,26 @@
+HOST: http://api.caffeinated.nl/
+
+--- caffeinated ---
+
+--
+Location Resources
+The following is a section of resources related to the locations
+--
+
+List locations
+GET /location
+< 200
+< Content-Type: application/json
+{ "items": [
+{ "url": "/location/1", "name":"Star Bucks - The Bank", "latitude": "52.365845", "longitude": "4.897746" }
+] }
+
+Save new locations
+POST /location
+> Content-Type: application/json
+{ "name":"Star Bucks - Hilton", "latitude": "52.376818", "longitude": "4.904037" }
+< 201
+< Content-Type: application/json
+{ "status": "created", "url": "/location/2" }
+
+-- Member Resources --
