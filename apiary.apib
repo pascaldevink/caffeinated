@@ -1,47 +1,154 @@
-HOST: http://api.caffeinated.nl/
+FORMAT: 1A
 
---- caffeinated ---
+# Caffeinated API
+Venues are businesses with locations that can offer a range of services. These can be plotted on a map.
 
---
-Root 
-lists all resources
---
+# Caffeinated API Root [/]
+Caffeinated API entry point.
 
-GET /
-< 200
-< Content-Type: application/json
-{
-    "resources": {
-        "venue": "/venue",
-    }
-}
+This resource does not have any attributes. Instead it offers the initial API affordances in the form of the HTTP Link header and HAL links.
+
+## Retrieve Entry Point [GET]
+
++ Response 200 (application/hal+json)
+    + Headers
+
+            Link: <http:/api.caffeinated.nl/>;rel="self",<http:/api.caffeinated.nl/venue>;rel="venue"
+
+    + Body
+
+            {
+                "_links": {
+                    "self": { "href": "/" },
+                    "venue": { "href": "/venue?{lat}&{lon}", "templated": true }
+                }
+            }
+
+# Group Venue 
+Venue-related resources of the *Caffeinated API*
+
+## Venue [/venue/{id}]
+A single venue. 
+
+The Venue resource has the following attributes:
+
+- id
+- created_at
+- name
+- address
+- latitude
+- longitude
+
+The states *id* and *created_at* are assigned by the Caffeinated API at the moment of creation.
+
++ Parameters
+    + id (string) ... ID of the Venue.
+
++ Model (application/hal+json)
+
+    HAL+JSON representation of Venue Resource. In addition to representing its state in the JSON form it offers affordances in the form of the HTTP Link header and HAL links.
+
+    + Headers
+
+            Link: <http:/api.caffeinated.nl/venue/f8yrgfe8ourh>;rel="self", <http:/api.caffeinated.nl/venue/f8yrgfe8ourh/star>;rel="star"
+
+    + Body
+
+            {
+                "_links": {
+                    "self": { "href": "/venue/f8yrgfe8ourh" },
+                    "star": { "href": "/venue/f8yrgfe8ourh/star" },
+                },
+                "id": "f8yrgfe8ourh",
+                "created_at": "2014-04-14T02:15:15Z",
+                "name": "Starbucks The Bank",
+                "address": "Rembrandtplein 42",
+                "latitude": "4.897746",
+                "longitude": "52.365845"
+            }
+
+### Retrieve a single Venue [GET]
++ Response 200
+
+    [Venue][]
+
+### Edit a Venue [PATCH]
+To update a Venue send a JSON with updated value for one or more of the Venue resource attributes. All attributes values (states) from the previous version of this Venue are carried over by default if not included in the hash.
+
++ Request (application/json)
+
+        {
+            "name": "Starbucks - The Bank"
+        }
+
++ Response 200
+
+    [Venue][]
+
+### Delete a Gist [DELETE]
++ Response 204
+
+## Venue Collection [/venue/{?lat}{?lon}]
+The Venue Collection resource has the following attribute:
+
+- total
+
+In addition it **embeds** *Venue Resources* in the Caffeinated API.
+
++ Model (application/hal+json)
+
+    HAL+JSON representation of Vennue Collection Resource. The Venue resources in collections are embedded. 
+    Note the embedded Venue resource are incomplete representations of the Venue in question. Use the respective Venue link to retrieve its full representation.
+
+    + Headers
+
+            Link: <http:/api.caffeinated.nl/venue>;rel="self"
+
+    + Body
+
+            {
+                "_links": {
+                    "self": { "href": "/venue" }
+                },
+                "_embedded": {
+                    "venue": [
+                        {
+                            "_links" : {
+                                "self": { "href": "/venue/f8yrgfe8ourh" }
+                            },
+                            "id": "f8yrgfe8ourh",
+                            "created_at": "2014-04-14T02:15:15Z",
+                            "name": "Starbucks The Bank",
+                            "latitude": "4.897746",
+                            "longitude": "52.365845"
+                        }
+                    ]
+                },
+                "total": 1
+            }
 
 
---
-Venue resources
-The following is a section of resources related to the venues
---
+### List all venues [GET]
++ Parameters
+    + lat (required, number, `4.34534`) ... Latitude
+    + lon (optional, number, `54.2325`) ... Longitude
+    
++ Response 200 
 
-List venues
-GET /venue
-< 200
-< Content-Type: application/json
-{ "items": [
-{ "url": "/venue/1", "name":"Star Bucks - The Bank", "latitude": "52.365845", "longitude": "4.897746" }
-] }
+    [Venue Collection][]
 
-Create new venue
-POST /venue
-> Content-Type: application/json
-{ "name":"Star Bucks - Hilton", "latitude": "52.376818", "longitude": "4.904037" }
-< 201
-< Content-Type: application/json
-{ "status": "created", "url": "/venue/2" }
+### Create a Venue [POST]
+To create a new Venue simply provide a JSON hash of the *name*, *address*, *latitude* and *longitude* attributes for the new Venur.
 
-Get details of a single venue
-GET /venue/1
-< 200
-< Content-Type: application/json
-{ "url": "/venue/1", "name":"Star Bucks - The Bank", "latitude": "52.365845", "longitude": "4.897746" }
++ Request (application/json)
 
--- Member Resources --
+        {
+            "name": "Starbucks The Bank",
+            "address": "Rembrandtplein 42",
+            "latitude": "4.897746",
+            "longitude": "52.365845"
+        }
+
++ Response 201
+
+    [Venue][]
